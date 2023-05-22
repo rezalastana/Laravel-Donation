@@ -42,14 +42,95 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
-
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="index.html" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
+
+
+                        {{-- tambahkan method hasRole pada User model --}}
+                        @if(auth()->user()->hasRole('admin'))
+                        <li class="sidebar-title">MASTER</li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-box"></i>
+                                <span>Kategori</span>
+                            </a>
+                        </li>
+                        @else
+                        <li class="sidebar-title">MASTER</li>
+                        @endif
+
+                        @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('donatur'))
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-folder"></i>
+                                <span>Projek</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">REFERENSI</li>
+
+                        @if(auth()->user()->hasRole('admin'))
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-add"></i>
+                                <span>Donatur</span>
+                            </a>
+                        </li>
+                        @endif
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-currency-dollar"></i>
+                                <span>Daftar Donasi</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-wallet2"></i>
+                                <span>Daftar Pencairan Dana</span>
+                            </a>
+                        </li>
+                        @endif
+
+                        @if(auth()->user()->hasRole('admin'))
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-envelope-plus"></i>
+                                <span>Kotak Masuk</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-plus"></i>
+                                <span>Subscriber</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">REPORT</li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-file-check"></i>
+                                <span>Laporan</span>
+                            </a>
+                        </li>
+                        @endif
+
+                        @if(auth()->user()->hasRole('admin'))
+                        <li class="sidebar-title">SISTEM</li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-gear"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        @endif
+
 
                     </ul>
                 </div>

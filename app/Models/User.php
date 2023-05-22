@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Role::class, 'id', 'role_id');
     }
+
+    public function hasRole($role) //untuk di sidebar
+    {
+        return $this->role->name == $role; //kalau sama akan true, kalau beda akan false
+    }
 }

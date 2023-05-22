@@ -45,8 +45,8 @@ Route::group([
 Route::group([
     'middleware' => ['auth','role:donatur']
 ], function() {
-    // Route::get('/dashboard', function(){
-    //     // return 'Welcome Donatur';
-    //     return view('dashboard');})
-    //     ->name('dashboard');
+    Route::get('/donatur', function(){
+        // return 'Welcome Donatur';
+        return view('layouts.main');})
+        ->name('dashboard');
 });
